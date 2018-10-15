@@ -1,4 +1,5 @@
 import multithreading.TestingClasses;
+import networking.NetworkingTesting;
 import runtime.TestingRuntime;
 
 public class Main {
@@ -6,5 +7,6 @@ public class Main {
         System.out.println("App starting...");
         TestingClasses.TestClasses();
         TestingRuntime.TestRuntime();
+        NetworkingTesting.NetworkingTest();
     }
 }
