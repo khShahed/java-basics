@@ -62,18 +62,37 @@ public class TestingClasses {
 //        }catch (Exception e) {}
 
         // Multitasking With anonymous Thread Class
-        Thread t1 = new Thread(){
-          public void run(){
-              System.out.println("Anonymous thread 1 running...");
-          }
-        };
-        Thread t2 = new Thread(){
-          public void run(){
-              System.out.println("Anonymous thread 2 running...");
-          }
-        };
-        t1.start();
-        t2.start();
+//        Thread t1 = new Thread(){
+//          public void run(){
+//              System.out.println("Anonymous thread 1 running...");
+//          }
+//        };
+//        Thread t2 = new Thread(){
+//          public void run(){
+//              System.out.println("Anonymous thread 2 running...");
+//          }
+//        };
+//        t1.start();
+//        t2.start();
+
+        // Multitasking With anonymous Runnable
+//        Runnable r1=new Runnable(){
+//            public void run(){
+//                System.out.println("task one");
+//            }
+//        };
+//
+//        Runnable r2=new Runnable(){
+//            public void run(){
+//                System.out.println("task two");
+//            }
+//        };
+//
+//        Thread t3=new Thread(r1);
+//        Thread t4=new Thread(r2);
+//
+//        t3.start();
+//        t4.start();
 
     }
 }
