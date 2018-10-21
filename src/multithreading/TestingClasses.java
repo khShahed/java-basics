@@ -1,7 +1,11 @@
 package multithreading;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class TestingClasses {
     public static void TestClasses(){
@@ -21,9 +25,8 @@ public class TestingClasses {
 
         // Thread pool
 //        ExecutorService executorService = Executors.newFixedThreadPool(5);
-//        for (int i=0; i < 10; i++) {
-//            Runnable worker = new WorkerThread(""+i);
-//            executorService.execute(worker);
+//        for (int i=0; i < 100; i++) {
+//            executorService.execute(new WorkerThread(""+i));
 //        }
 //
 //        executorService.shutdown();
@@ -93,6 +96,26 @@ public class TestingClasses {
 //
 //        t3.start();
 //        t4.start();
+
+        // Using Callable
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        List<Future<Integer>> futureList = new ArrayList<>();
+        for (int i=0; i < 100; i++) {
+            futureList.add(executorService.submit(new UsingCallable()));
+        }
+
+        futureList.forEach(future -> {
+            try {
+                Integer integer = future.get();
+                System.out.println(integer);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        });
+        executorService.shutdown();
+        System.out.println("Finished all thread");
 
     }
 }
